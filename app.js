@@ -10,6 +10,7 @@ const app = express();
 
 //routes
 const user_router = require('./api/router/user.router');
+const chapter_router = require('./api/router/chapter.router');
 
 //database setup
 const mongo_host = process.env.MONGO_LOCAL_HOST || MONGO_CLOUD_HOST;
@@ -29,6 +30,7 @@ app.use(bodyparser.json());
 
 //api routes
 app.use('/users', user_router);
+app.use('/chapters', chapter_router);
 
 //handle incorrect request
 app.use((req, res, next) => {
